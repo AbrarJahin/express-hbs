@@ -1,5 +1,10 @@
 module.exports = function(app)
 {
-	app.use( '/', require('./controllers/index') );
-	app.use( '/users', require('./controllers/users') );
+	//Resource Routing
+	app.use(
+				'/',
+				require('./middleware/try_middleware'),
+				require('./controllers/index')
+			);
+	app.use( '/users',	require('./controllers/users') );
 }

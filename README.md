@@ -62,3 +62,5 @@ https://github.com/foreverjs/forever
 Add auto restart in node.js in Ubuntu-
 
 http://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job
+
+http://stackoverflow.com/questions/38354822/nginx-configration-for-my-nodejs-app
