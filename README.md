@@ -1,6 +1,5 @@
 # Express.js - Start
 
-
 Install Express Installer-
 
 	npm install express-generator -g
@@ -47,9 +46,15 @@ Check Autometic Update-
 more-
 https://www.npmjs.com/package/npm-check-updates
 
+----------------------------------------------------
+
 Auto Start after change-
 
 	npm install -g nodemon
+
+After this, u should run the app through this command-
+
+	nodemon --debug ./bin/www
 
 More-
 
@@ -64,3 +69,5 @@ Add auto restart in node.js in Ubuntu-
 http://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job
 
 http://stackoverflow.com/questions/38354822/nginx-configration-for-my-nodejs-app
+
+http://stackoverflow.com/questions/5009324/node-js-nginx-what-now?rq=1

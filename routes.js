@@ -6,5 +6,8 @@ module.exports = function(app)
 				require('./middleware/try_middleware'),
 				require('./controllers/index')
 			);
-	app.use( '/users',	require('./controllers/users') );
+	app.use(
+				'/users',
+				require('./controllers/users')
+			);
 }
