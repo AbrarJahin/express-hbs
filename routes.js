@@ -3,7 +3,7 @@ module.exports = function(app)
 	//Resource Routing
 	app.use(
 				'/',
-				require('./middleware/try_middleware'),
+				require('./middlewares/try_middleware'),
 				require('./controllers/index')
 			);
 	app.use(
