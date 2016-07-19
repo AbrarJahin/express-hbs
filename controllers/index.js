@@ -7,9 +7,9 @@ router.get('/', function(req, res, next)
 	res.render(
 				'index',
 				{
-					title	:	'Express',
-					title	:	'Express',
-					layout	:	'templates/layout'
+					title		:	'Express',
+					site_name	:	'Our Site',
+					layout		:	'templates/layout'
 				}
 			);
 });

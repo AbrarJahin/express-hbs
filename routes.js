@@ -4,6 +4,7 @@ module.exports = function(app)
 	app.use(
 				'/',
 				require('./middlewares/try_middleware'),
+				//controllers.index
 				require('./controllers/index')
 			);
 	app.use(
