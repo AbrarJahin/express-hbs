@@ -11,6 +11,9 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
+ var config = require('../env.json')[process.env.NODE_ENV || 'development'];
+
+console.log(config);
 
 var port = normalizePort(process.env.PORT || '8080');
 console.log("Your app is running in - http://localhost:"+port);

@@ -14,4 +14,15 @@ router.get('/', function(req, res, next)
 			);
 });
 
+router.get('/asd', function(req, res, next)
+{
+	res.json(
+				{
+					title		:	'Express',
+					site_name	:	'Our Site',
+					layout		:	'templates/layout'
+				}
+			);
+});
+
 module.exports = router;
