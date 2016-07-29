@@ -71,3 +71,39 @@ http://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job
 http://stackoverflow.com/questions/38354822/nginx-configration-for-my-nodejs-app
 
 http://stackoverflow.com/questions/5009324/node-js-nginx-what-now?rq=1
+
+
+===============================
+
+During Production, run this-
+
+    $env:NODE_ENV = "production"
+
+and run this-
+
+    cp env.json.example env.json
+
+And then set configurations in `env.json`.
+
+
+Mongo DB Start (After Installation and setting Environment variables in Windows)-
+
+    mongod --port 27017 --dbpath 'D:\MongoDB\db'
+
+Running MongoDB as a service (should `Run as Administrator`)-
+
+    mongod --remove
+    mongod --port 27017 --dbpath='D:\MongoDB\db' --logpath='D:\MongoDB\log\log.txt' --install
+    net start MongoDB
+
+
+To see log-
+
+    tail -f D:\MongoDB\log\log.txt
+
+----------------------------------------------------------------------
+
+For Asynchronus Call - use `yield`-
+
+    https://strongloop.com/strongblog/how-to-generators-node-js-yield-use-cases/
+

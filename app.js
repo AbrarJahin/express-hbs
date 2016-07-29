@@ -8,11 +8,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-/*//Configuring The Server - From Config Files
-var config    = require('config');
-var dbConfig  = config.get('Customer.dbConfig');
-*/
-
 var app = express();
 
 // view engine setup
