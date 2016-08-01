@@ -15,29 +15,20 @@ var websocket = require('socket.io');
 //Configurations
 var config = require('../env.json')[process.env.NODE_ENV || 'development'];
 var port = normalizePort(config.PORT || process.env.PORT || '8080');
-console.log("Your app is running in - http://localhost:"+port);
 app.set('port', port);
+console.log("Your app is running in - http://localhost:"+port);
 
 /**
- * Create server.
+ * Create HTTP server.
  */
 var server = http.createServer(app);
-var io = websocket.listen(server);
 
-io.on('connection', function(socket)
-{
-	io.emit('this', { will: 'be received by everyone'});
+/**
+ * Socket.io
+ */
 
-	socket.on('private message', function(from, msg)
-	{
-		console.log('I received a private message by ', from, ' saying ', msg);
-	});
-
-	socket.on('disconnect', function()
-	{
-		io.emit('user disconnected');
-	});
-});
+var io     = app.io
+io.attach( server );
 
 /**
  * Listen on provided port, on all network interfaces.
