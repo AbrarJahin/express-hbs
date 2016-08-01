@@ -1,33 +1,39 @@
 <!doctype html>
 <html>
-    <head>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js'></script>
-        <script>
-            var socket = io();
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js'></script>
 
-            socket.on('welcome', function(data) {
-                addMessage(data.message);
+		<script>
+			var socket = io();
 
-                // Respond with a message including this clients' id sent from the server
-                socket.emit('i am client', {data: 'foo!', id: data.id});
-            });
-            socket.on('time', function(data) {
-                addMessage(data.time);
-            });
-            socket.on('error', console.error.bind(console));
-            socket.on('message', console.log.bind(console));
+			socket.on('welcome', function(data)
+			{
+				addMessage(data.message);
 
-            function addMessage(message) {
-                var text = document.createTextNode(message),
-                    el = document.createElement('li'),
-                    messages = document.getElementById('messages');
+				// Respond with a message including this clients' id sent from the server
+				socket.emit('i am client', {data: 'foo!', id: data.id});
+			});
 
-                el.appendChild(text);
-                messages.appendChild(el);
-            }
-        </script>
-    </head>
-    <body>
-        <ul id='messages'></ul>
-    </body>
+			socket.on('time', function(data)
+			{
+				addMessage(data.time);
+			});
+
+			socket.on('error', console.error.bind(console));
+			socket.on('message', console.log.bind(console));
+
+			function addMessage(message)
+			{
+				var text = document.createTextNode(message),
+					el = document.createElement('li'),
+					messages = document.getElementById('messages');
+
+				el.appendChild(text);
+				messages.appendChild(el);
+			}
+		</script>
+	</head>
+	<body>
+		<ul id='messages'></ul>
+	</body>
 </html>
