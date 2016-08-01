@@ -14,14 +14,10 @@ router.get('/', function(req, res, next)
 			);
 });
 
-router.get('/asd', function(req, res, next)
+router.get('/try', function(req, res, next)
 {
-	res.json(
-				{
-					title		:	'Express',
-					site_name	:	'Our Site',
-					layout		:	'templates/layout'
-				}
+	res.render(
+				'message'
 			);
 });
 
