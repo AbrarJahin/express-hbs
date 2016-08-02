@@ -25,3 +25,44 @@ function addMessage(message)
 	el.appendChild(text);
 	messages.appendChild(el);
 }
+
+//Default Events
+socket.on('connect', function()
+{
+	alert('connect');
+});
+
+socket.on('connect_error', function(data)
+{
+	alert(connect_error);
+});
+
+socket.on('connect_timeout', function()
+{
+	alert('connect_timeout');
+});
+
+socket.on('reconnect', function(attempt_number)
+{
+	alert('reconnect - '+attempt_number);
+});
+
+socket.on('reconnect_attempt', function()
+{
+	alert('reconnect_attempt');
+});
+
+socket.on('reconnecting', function(attempt_number)
+{
+	alert('reconnecting - '+attempt_number);
+});
+
+socket.on('reconnect_error', function(data)
+{
+	alert('reconnect_error');
+});
+
+socket.on('reconnect_failed', function()
+{
+	alert('reconnect_failed');
+});

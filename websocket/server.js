@@ -3,18 +3,54 @@ module.exports = function(io)
 {
 	// Emit welcome message on connection
 	io.on('connection', function(socket)
-	{
-		// Use socket to communicate with this particular client only, sending it it's own id
+	{// Use socket to communicate with this particular client only, sending it it's own id
+		//Sending Data to users
 		socket.emit('welcome', { message: 'Welcome!', id: socket.id });
-		socket.on('i am client', console.log);
-	});
 
-	// io.on('connection', function(socket)
-	// {
-	// 	console.log('a user connected');
-	// 	socket.on('disconnect', function()
-	// 	{
-	// 		console.log('user disconnected');
-	// 	});
-	// });
+		//Receive User data
+		socket.on('i am client', console.log);
+
+
+		//Receive User Events
+		socket.on('connect', function()
+		{
+			console.log( 'connected..' );
+		});
+
+		socket.on('error', function(error)
+		{
+			console.log( 'Error - ' + JSON.stringify(error) );
+		});
+
+		socket.on('disconnect', function(event_name)
+		{
+			console.log( 'Disconnected.. - ' + socket.id );
+			//console.log( event_name );
+		});
+
+		socket.on('reconnect', function(reconnect_number)
+		{
+			console.log( 'Reconnect - ' + reconnect_number );
+		});
+
+		socket.on('reconnect_attempt', function()
+		{
+			console.log( 'Reconnect attempt...' );
+		});
+
+		socket.on('reconnecting', function(reconnect_number)
+		{
+			console.log( 'Reconnecting... - ' + reconnect_number );
+		});
+
+		socket.on('reconnect_error', function(error)
+		{
+			console.log( 'Reconnect error - ' + JSON.stringify(error) );
+		});
+
+		socket.on('reconnect_failed', function()
+		{
+			console.log( 'Reconnect failed...' );
+		});
+	});
 }
