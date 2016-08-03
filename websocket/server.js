@@ -10,12 +10,8 @@ module.exports = function(io)
 		//Receive User data
 		socket.on('i am client', console.log);
 
-
 		//Receive User Events
-		socket.on('connect', function()
-		{
-			console.log( 'connected..' );
-		});
+		console.log( socket.id + ' - connected..' );
 
 		socket.on('error', function(error)
 		{
@@ -30,7 +26,7 @@ module.exports = function(io)
 
 		socket.on('reconnect', function(reconnect_number)
 		{
-			console.log( 'Reconnect - ' + reconnect_number );
+			console.log( socket.id + ' - Reconnect - ' + reconnect_number );
 		});
 
 		socket.on('reconnect_attempt', function()
@@ -52,5 +48,6 @@ module.exports = function(io)
 		{
 			console.log( 'Reconnect failed...' );
 		});
+
 	});
 }
