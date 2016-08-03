@@ -1,5 +1,4 @@
 var express = require('express');
-var socket_io = require( "socket.io" );
 var path = require('path');
 var favicon = require('serve-favicon');
 //var controllers = require('./controllers');
@@ -13,6 +12,10 @@ var bodyParser = require('body-parser');
 var app          = express();
 
 // Socket.io
+var socket_io = require( "socket.io" );
+// socket_io.set('close timeout', 60);
+// socket_io.set('heartbeat timeout', 60);
+
 var io           = socket_io();
 app.io           = io;
 

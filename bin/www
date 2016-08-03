@@ -23,7 +23,8 @@ console.log("Your app is running in - http://localhost:"+port);
  * Create HTTP server.
  */
 var server = http.createServer(app);
-
+var timeout = normalizePort(config.TIME_OUT || process.env.TIME_OUT || 5);
+server['close timeout'] = timeout;
 /**
  * Socket.io
  */
