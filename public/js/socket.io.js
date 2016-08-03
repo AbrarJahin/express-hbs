@@ -25,16 +25,6 @@ socket.on('time', function(data)
 socket.on('error',		console.error.bind(console));
 socket.on('message',	console.log.bind(console));
 
-function addMessage(message)
-{
-	var text = document.createTextNode(message),
-		el = document.createElement('li'),
-		messages = document.getElementById('messages');
-
-	el.appendChild(text);
-	messages.appendChild(el);
-}
-
 //Default Events
 socket.on('connect', function()
 {
@@ -75,3 +65,13 @@ socket.on('reconnect_failed', function()
 {
 	console.log('reconnect_failed');
 });
+
+function addMessage(message)
+{
+	var text = document.createTextNode(message),
+		el = document.createElement('li'),
+		messages = document.getElementById('messages');
+
+	el.appendChild(text);
+	messages.appendChild(el);
+}
