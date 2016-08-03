@@ -5,10 +5,16 @@ module.exports = function(io)
 	io.on('connection', function(socket)
 	{// Use socket to communicate with this particular client only, sending it it's own id
 		//Sending Data to users
-		socket.emit('welcome', { message: 'Welcome!', id: socket.id });
+		socket.emit(
+						'broadcast_data',
+						{
+							message: 'Welcome!',
+							id: socket.id
+						}
+					);
 
 		//Receive User data
-		socket.on('i am client', console.log);
+		socket.on('client_data', console.log);
 
 		//Receive User Events
 		console.log( socket.id + ' - connected..' );

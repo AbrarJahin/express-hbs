@@ -3,14 +3,14 @@
 var socket = io();
 
 //Sending data to server
-socket.on('welcome', function(data)
+socket.on('broadcast_data', function(data)
 {
 	addMessage(data.message);
 
 	// Respond with a message including this clients' id sent from the server
-	socket.emit('i am client',
+	socket.emit('client_data',
 					{
-						data: 'foo!',
+						data: 'Try Data',
 						id: data.id
 					}
 				);
