@@ -24,6 +24,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set('view options', { layout: false });		//Disabling default layout
 require('./view_partials')(app);
+require('./view_partials')(app);
+require('./model_list')(app);
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
