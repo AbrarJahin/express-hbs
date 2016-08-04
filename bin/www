@@ -8,7 +8,7 @@ var app = require('../app');
 var debug = require('debug')('anything:server');
 var http = require('http');
 var websocket = require('socket.io');
-
+var mongoose = require('mongoose');
 /**
  * Get port from environment and store in Express.
  */
@@ -17,7 +17,9 @@ var config = require('../env.json')[process.env.NODE_ENV || 'development'];
 
 var port = normalizePort(config.PORT || process.env.PORT || '8080');
 app.set('port', port);
-console.log("Your app is running in - http://localhost:"+port);
+console.log("Your app is running in - http://localhost:" + port);
+//Connect to Mongo DB
+global.db = mongoose.createConnection(config.MONGO_URI,config.MONGO_OPTIONS);
 
 /**
  * Create HTTP server.

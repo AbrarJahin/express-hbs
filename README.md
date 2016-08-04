@@ -85,6 +85,13 @@ and run this-
 
 And then set configurations in `env.json`.
 
+## MongoDB
+
+Most easy way to install mongoDB-
+
+    npm install -g mongodb
+
+In windows, u can install with installer and config like this-
 
 Mongo DB Start (After Installation and setting Environment variables in Windows)-
 
@@ -92,8 +99,8 @@ Mongo DB Start (After Installation and setting Environment variables in Windows)
 
 Running MongoDB as a service (should `Run as Administrator`)-
 
-    mongod --remove
-    mongod --port 27017 --dbpath='D:\MongoDB\db' --logpath='D:\MongoDB\log\log.txt' --install
+	mongod --remove
+	mongod --port 27017 --dbpath='D:\MongoDB\db' --logpath='D:\MongoDB\log\log.txt' --install
     net start MongoDB
 
 
