@@ -60,10 +60,6 @@ More-
 
 http://nodemon.io/
 
-Run Server Autometically in backend-
-
-https://github.com/foreverjs/forever
-
 Add auto restart in node.js in Ubuntu-
 
 http://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job
@@ -119,4 +115,33 @@ For Asynchronus Call - use `yield`-
 Best Option can be-
 
     https://github.com/techpines/express.io
+
+# Production-
+
+Install pm2 like this-
+
+    npm install -g pm2
+
+And start app like this (Production)-
+
+    pm2 start ./bin/www
+
+In development-
+
+    pm2 start ./bin/www --watch
+
+List all pm2 app -
+
+    pm2 list
+
+Stop-
+
+    pm2 stop     <app_name|id|'all'|json_conf>
+
+
+Detail can be found here-
+
+    https://www.npmjs.com/package/pm2
+
+    http://pm2.keymetrics.io/docs/usage/quick-start/
 
