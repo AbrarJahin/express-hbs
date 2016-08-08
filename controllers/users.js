@@ -1,6 +1,6 @@
+//Base URL - /users
 var express = require('express');
 var router = express.Router();
-// var model = require('../models/user');
 
 router.get('/json', function(req, res, next)
 {

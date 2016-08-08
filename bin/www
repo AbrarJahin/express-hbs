@@ -9,6 +9,9 @@ var debug = require('debug')('anything:server');
 var http = require('http');
 var websocket = require('socket.io');
 var mongoose = require('mongoose');
+// set Promise provider to bluebird
+mongoose.Promise = require('bluebird');
+
 /**
  * Get port from environment and store in Express.
  */
@@ -20,6 +23,14 @@ app.set('port', port);
 console.log("Your app is running in - http://localhost:" + port);
 //Connect to Mongo DB
 global.db = mongoose.createConnection(config.MONGO_URI,config.MONGO_OPTIONS);
+
+//Showing DB Connection Error - Start
+	db.on('error', console.error.bind(console, 'connection error:'));
+	db.once('open', function()
+	{// successfully connected!
+		console.log("Successfully Connected DB Connection");
+	});
+//Showing DB Connection Error - End
 
 /**
  * Create HTTP server.
