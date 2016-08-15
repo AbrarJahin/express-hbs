@@ -8,9 +8,15 @@ var app = require('../app');
 var debug = require('debug')('anything:server');
 var http = require('http');
 var websocket = require('socket.io');
+
 var mongoose = require('mongoose');
-// set Promise provider to bluebird
 mongoose.Promise = require('bluebird');
+// mongoose.Promise = global.Promise;
+
+// var mongoose = require('mongoose');
+// var Schema = mongoose.Schema; // AFTER THIS LINE
+// var Promise = require('bluebird'); //ADD THIS LINE
+// Promise.promisifyAll(mongoose); //AND THIS LINE
 
 /**
  * Get port from environment and store in Express.
@@ -28,7 +34,7 @@ global.db = mongoose.createConnection(config.MONGO_URI,config.MONGO_OPTIONS);
 	db.on('error', console.error.bind(console, 'connection error:'));
 	db.once('open', function()
 	{// successfully connected!
-		console.log("Successfully Connected DB Connection");
+		console.log("Successfully Connected to Mongo-DB");
 	});
 //Showing DB Connection Error - End
 
